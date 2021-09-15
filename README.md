@@ -65,3 +65,13 @@ At this stage, let's add integral squares. Of course, you can add more difficult
     - [x] If the file **results.txt** does not exist, you should create it.
 
 - [x] In case of **no** or **any other word**: exit the program.
+
+## Sample ideas how to improve the application:
+
+1. Add a complex exam. Increase a difficulty level on the fly. For example, if a person passed the 1st level, start the 2nd one immediately.
+2. You can add a correction level: store the tasks with wrong answers and give them next time.
+3. Add more difficulty levels.
+4. Track the time (read about Timer).
+5. Write a more detailed report to a file with the results.
+6. Show previous results inside the app (show lines from results.txt that contains the username)
+7. Any other improvement that might be useful!
