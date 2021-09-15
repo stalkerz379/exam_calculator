@@ -1,4 +1,5 @@
 import random
+import os
 
 
 def calculations():
@@ -110,9 +111,27 @@ def saving_results_to_file(game_score, lvl):
         return saving_results_to_file(game_score, lvl)
 
 
+def check_previous_user_results():
+    try:
+        read = open('results.txt', encoding='utf-8')
+        file_size = os.path.getsize('results.txt')
+        if file_size == 0:
+            print('Your results file is empty')
+        else:
+            print('Printing your previous results:')
+            i = 1
+            for line in read.readlines():
+                print(str(i) + '.', line, end='')
+                i += 1
+    except FileNotFoundError:
+        print('You dont have any previous results:(')
+    return ''
+
+
 def game_session():
     questions = 5
     game_score = 0
+    print(check_previous_user_results())
     user_option = select_option()
     if user_option == 1:
         lvl = "1 (simple operations with numbers 2-9)."
