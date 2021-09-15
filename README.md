@@ -73,5 +73,5 @@ At this stage, let's add integral squares. Of course, you can add more difficult
 - [x] ~~3. Add more difficulty levels.~~ **added 2 new lvlv**
 4. Track the time (read about Timer).
 5. Write a more detailed report to a file with the results.
-6. Show previous results inside the app (show lines from results.txt that contains the username)
+- [x] ~~6. Show previous results inside the app (show lines from results.txt that contains the username)~~ **added**
 7. Any other improvement that might be useful!
