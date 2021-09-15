@@ -11,6 +11,7 @@ def calculations():
 
 
 def calculation_logic(first_operand, operation, second_operand):
+    print(str(first_operand), operation, str(second_operand))
     result = 0
     if operation == '+':
         result = first_operand + second_operand
@@ -21,6 +22,21 @@ def calculation_logic(first_operand, operation, second_operand):
     else:
         print('Wrong input')
     return result
+
+
+def adding_and_subtraction_100_1000():
+    operations = ['-', '+']
+    first_operand = random.choice(range(100, 1001))
+    second_operand = random.choice(range(100, 1001))
+    operation = random.choice(operations)
+    return first_operand, operation, second_operand
+
+
+def multiplication_10_100_by_2_10():
+    first_operand = random.choice(range(10, 100))
+    second_operand = random.choice(range(2, 10))
+    operation = '*'
+    return first_operand, operation, second_operand
 
 
 def integral_calculation():
@@ -39,11 +55,18 @@ def check_user_calc_result(user_result, actual_result):
 def choose_option(option):
     if option == 1:
         first_operand, operation, second_operand = calculations()
-        print(str(first_operand), operation, str(second_operand))
         result = calculation_logic(first_operand, operation, second_operand)
         return result
     elif option == 2:
         result = integral_calculation()
+        return result
+    elif option == 3:
+        first_operand, operation, second_operand = adding_and_subtraction_100_1000()
+        result = calculation_logic(first_operand, operation, second_operand)
+        return result
+    elif option == 4:
+        first_operand, operation, second_operand = multiplication_10_100_by_2_10()
+        result = calculation_logic(first_operand, operation, second_operand)
         return result
 
 
@@ -60,8 +83,10 @@ def select_option():
     try:
         user_answer = int(input("Which level do you want? Enter a number: \n"
                                 "1 - simple operations with numbers 2-9 \n"
-                                "2 - integral squares of 11-29 \n"))
-        if user_answer not in [1, 2]:
+                                "2 - integral squares of 11-29 \n"
+                                "3 - adding and subtracting with numbers 100-1000\n"
+                                "4 - multiplication of 10-99 by 2-9\n"))
+        if user_answer not in [1, 2, 3, 4]:
             raise ValueError
     except ValueError:
         print('Incorrect format.')
@@ -88,11 +113,14 @@ def game_session():
     user_option = select_option()
     if user_option == 1:
         lvl = "1 (simple operations with numbers 2-9)."
-    else:
+    elif user_option == 2:
         lvl = "2  (integral squares of 11-29)."
+    elif user_option == 3:
+        lvl = "3 - adding and subtracting with numbers 100-1000."
+    else:
+        lvl = "multiplication of 10-99 by 2-9"
     while questions:
         result = choose_option(user_option)
-
         user_answer = ask_user_answer()
         print(check_user_calc_result(user_answer, result))
         if user_answer == result:
