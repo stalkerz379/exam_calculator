@@ -1,20 +1,20 @@
 # Arithmetic Exam Application
 ## Application Description
 At the current moment the application can:
-1. Printing user previous game results (if exists) that is stored in **results.txt** file (in the same directory where the script is);
+1. Printing user previous game results (if exists) that is stored in `results.txt` file (in the same directory where the script is);
 2. Asking a user to choose a game level. There are next lvl on the current moment:
-    - **1 - simple operations with numbers 2-9**
-    - **2 - integral squares of 11-29**
-    - **3 - adding and subtracting with numbers 100-1000**
-    - **4 - multiplication of 10-99 by 2-9**
-3. Validates user input, if user selected the wrong option the exception is thrown **'Incorrect format.'**
+    - `1 - simple operations with numbers 2-9`
+    - `2 - integral squares of 11-29`
+    - `3 - adding and subtracting with numbers 100-1000`
+    - `4 - multiplication of 10-99 by 2-9`
+3. Validates user input, if user selected the wrong option the exception is thrown `'Incorrect format.'`
 4. The game session begins and lasts 5 questions. Numbers and operations are randomly selected.
-5. If the user`s answers is wrong, appears message **Wrong"**, if the user`s answer is correct appears message **Right!**
-6. If user enters invalid data format, then the exception is thrown **"Wrong format! Try again."**
+5. If the user's answers is wrong, appears message `Wrong`, if the user's answer is correct appears message `Right!`
+6. If user enters invalid data format, then the exception is thrown `"Wrong format! Try again."`
 7. At the end of the game the app asks if the user wants to save the results into the file:
-    - if answer is *"yes"** or **"y"** (both case insensitive) then the program asks for the users name and saves results to the **results.txt" file. If it doesn't exists the app will create it. App writes results to the end of the file. The format application writes the data to the file: **user_name: user_game_score lvl_selected**
-    - if asnwer is **no** the app prints **Bye. See you later!** and closing.
-    - any other answer is treated as wrong and the app will print **"Wrong format!"** and reask a user again to enter the option.
+    - if answer is `yes` or `y` (both case insensitive) then the program asks for the users name and saves results to the `results.txt` file. If it doesn't exists the app will create it. App writes results to the end of the file. The format application writes the data to the file: `user_name: user_game_score lvl_selected`
+    - if asnwer is `no` the app prints `Bye. See you later!` and closing.
+    - any other answer is treated as wrong and the app will print `"Wrong format!"` and reask a user again to enter the option.
 
 Have fun!
 
