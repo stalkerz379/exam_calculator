@@ -12,7 +12,7 @@ At the current moment the application can:
 5. If the user's answers is wrong, appears message `Wrong`, if the user's answer is correct appears message `Right!`
 6. If user enters invalid data format, then the exception is thrown `"Wrong format! Try again."`
 7. At the end of the game the app asks if the user wants to save the results into the file:
-    - if answer is `yes` or `y` (both case insensitive) then the program asks for the users name and saves results to the `results.txt` file. If it doesn't exists the app will create it. App writes results to the end of the file. The format application writes the data to the file: `user_name: user_game_score lvl_selected`
+    - if answer is `yes` or `y` (both case insensitive) then the program asks for the users name and saves results to the `results.txt` file. If it doesn't exists the app will create it. App writes results to the end of the file. The format application writes the data to the file: `user_name: user_game_score lvl_selected`. E.g `Garry: 5/5 in level 1 (simple operations with numbers 2-9)`
     - if asnwer is `no` the app prints `Bye. See you later!` and closing.
     - any other answer is treated as wrong and the app will print `"Wrong format!"` and reask a user again to enter the option.
 
