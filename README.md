@@ -1,4 +1,23 @@
 # Arithmetic Exam Application
+## Application Description
+At the current moment the application can:
+1. Printing user previous game results (if exists) that is stored in **results.txt** file (in the same directory where the script is);
+2. Asking a user to choose a game level. There are next lvl on the current moment:
+    - **1 - simple operations with numbers 2-9**
+    - **2 - integral squares of 11-29**
+    - **3 - adding and subtracting with numbers 100-1000**
+    - **4 - multiplication of 10-99 by 2-9**
+3. Validates user input, if user selected the wrong option the exception is thrown **'Incorrect format.'**
+4. The game session begins and lasts 5 questions. Numbers and operations are randomly selected.
+5. If the user`s answers is wrong, appears message **Wrong"**, if the user`s answer is correct appears message **Right!**
+6. If user enters invalid data format, then the exception is thrown **"Wrong format! Try again."**
+7. At the end of the game the app asks if the user wants to save the results into the file:
+    - if answer is *"yes"** or **"y"** (both case insensitive) then the program asks for the users name and saves results to the **results.txt" file. If it doesn't exists the app will create it. App writes results to the end of the file. The format application writes the data to the file: **user_name: user_game_score lvl_selected**
+    - if asnwer is **no** the app prints **Bye. See you later!** and closing.
+    - any other answer is treated as wrong and the app will print **"Wrong format!"** and reask a user again to enter the option.
+
+Have fun!
+
 ## Stage 1: Mini-calculator
 
 ### Description
@@ -70,7 +89,7 @@ At this stage, let's add integral squares. Of course, you can add more difficult
 
 1. Add a complex exam. Increase a difficulty level on the fly. For example, if a person passed the 1st level, start the 2nd one immediately.
 2. You can add a correction level: store the tasks with wrong answers and give them next time.
-- [x] ~~3. Add more difficulty levels.~~ **added 2 new lvlv**
+- [x] ~~3. Add more difficulty levels.~~ **added 2 new lvls**
 4. Track the time (read about Timer).
 5. Write a more detailed report to a file with the results.
 - [x] ~~6. Show previous results inside the app (show lines from results.txt that contains the username)~~ **added**
