@@ -43,8 +43,8 @@ At this stage, let's add integral squares. Of course, you can add more difficult
 
 ### Objectives
 - [x] With the first message, the program should ask for a difficulty level:
-    - [x] 1 - simple operations with numbers 2-9
-    - [x] 2 - integral squares 11-29
+    - [x] **1 - simple operations with numbers 2-9**
+    - [x] **2 - integral squares 11-29**
 
 - [x] A user enters an answer.
     - [x] For the first difficulty level: the task is a simple math operation; the answer is the result of the operation.
@@ -54,14 +54,14 @@ At this stage, let's add integral squares. Of course, you can add more difficult
 - [x] The application gives 5 tasks to a user.
 
 - [x] The user receives one task, prints the answer.
-    - [x] If the answer contains a typo, print Incorrect format. and ask to re-enter the answer. Repeat until the answer is in the correct format.
-    - [x] If the answer is a number, print Right! or Wrong! Go to the next question.
+    - [x] If the answer contains a typo, print **Incorrect format.** and ask to re-enter the answer. Repeat until the answer is in the correct format.
+    - [x] If the answer is a number, print **Right!** or **Wrong!**. Go to the next question.
 
-- [x] After five answers, print Your mark is N/5. where N is the number of correct answers.
+- [x] After five answers, print **Your mark is N/5.** where N is the number of correct answers.
 
-- [x] Output Would you like to save your result to the file? Enter yes or no.
-    - [x] In case of yes, YES, y, Yes: the app should ask the username and write Name: n/5 in level X (<level description>). (X stands for the level number) in the results.txt file. For example — Alex: 3/5 in level 1 (simple operations with numbers 2-9).
-    - [x] The results should be saved to the file immediately after the user gave the positive answer to the question Would you like to save your result to the file?
-    - [x] If the file results.txt does not exist, you should create it.
+- [x] Output **Would you like to save your result to the file? Enter yes or no.**
+    - [x] In case of **yes**, **YES**, **y**, **Yes**: the app should ask the username and write **Name: n/5 in level X (<level description>).** (X stands for the level number) in the **results.txt file.** For example — **Alex: 3/5 in level 1 (simple operations with numbers 2-9).**
+    - [x] The results should be saved to the file immediately after the user gave the positive answer to the question **Would you like to save your result to the file?**
+    - [x] If the file **results.txt** does not exist, you should create it.
 
-- [x] In case of no or any other word: exit the program.
+- [x] In case of **no** or **any other word**: exit the program.
