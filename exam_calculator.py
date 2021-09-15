@@ -103,8 +103,11 @@ def saving_results_to_file(game_score, lvl):
         results_file.close()
         print('The results are saved in "results.txt"')
         return ''
+    elif answer == 'no':
+        return 'Bye. See you later!'
     else:
-        exit()
+        print('Wrong format!')
+        return saving_results_to_file(game_score, lvl)
 
 
 def game_session():
