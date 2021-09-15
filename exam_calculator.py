@@ -1,5 +1,6 @@
 import random
 import os
+import time
 
 
 def calculations():
@@ -47,9 +48,12 @@ def integral_calculation():
     return result
 
 
-def check_user_calc_result(user_result, actual_result):
+def check_user_calc_result(user_result, actual_result, check_time_result):
     if user_result == actual_result:
-        return 'Right!'
+        if check_time_result is True:
+            return 'Right!'
+        else:
+            return 'The answer is right, but you failed the deadline'
     return 'Wrong'
 
 
@@ -83,10 +87,10 @@ def ask_user_answer():
 def select_option():
     try:
         user_answer = int(input("Which level do you want? Enter a number: \n"
-                                "1 - simple operations with numbers 2-9 \n"
-                                "2 - integral squares of 11-29 \n"
-                                "3 - adding and subtracting with numbers 100-1000\n"
-                                "4 - multiplication of 10-99 by 2-9\n"))
+                                "1 - simple operations with numbers 2-9 (7 seconds to complete every task) \n"
+                                "2 - integral squares of 11-29 (12 seconds to complete every task)\n"
+                                "3 - adding and subtracting with numbers 100-1000 (15 seconds to complete every task)\n"
+                                "4 - multiplication of 10-99 by 2-9 (20 seconds to complete every task)\n"))
         if user_answer not in [1, 2, 3, 4]:
             raise ValueError
     except ValueError:
@@ -128,11 +132,7 @@ def check_previous_user_results():
     return ''
 
 
-def game_session():
-    questions = 5
-    game_score = 0
-    print(check_previous_user_results())
-    user_option = select_option()
+def printing_chosen_lvl(user_option):
     if user_option == 1:
         lvl = "1 (simple operations with numbers 2-9)."
     elif user_option == 2:
@@ -141,13 +141,59 @@ def game_session():
         lvl = "3 - adding and subtracting with numbers 100-1000."
     else:
         lvl = "multiplication of 10-99 by 2-9"
+    return lvl
+
+
+def time_difference_check(time_difference, time_required):
+    if time_difference <= time_required:
+        return True
+    else:
+        return False
+
+
+def check_time(user_option, final_time):
+    if user_option == 1:
+        time_required = 7.0
+        check_result = time_difference_check(final_time, time_required)
+    elif user_option == 2:
+        time_required = 12.0
+        check_result = time_difference_check(final_time, time_required)
+    elif user_option == 3:
+        time_required = 15.0
+        check_result = time_difference_check(final_time, time_required)
+    else:
+        time_required = 20.0
+        check_result = time_difference_check(final_time, time_required)
+    return check_result
+
+
+def current_game_start_parameters():
+    questions = 5
+    game_score = 0
+    total_time = 0
+    return questions, game_score, total_time
+
+
+def game_session():
+    questions, game_score, total_time = current_game_start_parameters()
+    print(check_previous_user_results())
+    user_option = select_option()
+    lvl = printing_chosen_lvl(user_option)
     while questions:
         result = choose_option(user_option)
+        start_time = time.perf_counter()
+        print('Time counting started')
         user_answer = ask_user_answer()
-        print(check_user_calc_result(user_answer, result))
-        if user_answer == result:
+        finish_time = time.perf_counter()
+        total_time += round(finish_time - start_time, 2)
+        time_difference = round(finish_time - start_time, 2)
+        check_time_result = check_time(user_option, time_difference)
+        print(f'It took {time_difference} seconds for you to solve this task')
+        print(check_user_calc_result(user_answer, result, check_time_result))
+        if user_answer == result and check_time_result is True:
             game_score += 1
         questions -= 1
+    print(f'You finished the lvl {lvl} in {total_time}')
     print(f'Your mark is {game_score}/5.')
     return saving_results_to_file(game_score, lvl)
 
