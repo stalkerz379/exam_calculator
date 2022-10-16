@@ -1,5 +1,6 @@
 # Arithmetic Exam Application
 ## Application Description
+Added new implementation folder `app_new_version`, old version in a file `old_version.py`. 
 At the current moment the application can:
 1. Printing user previous game results (if exists) that is stored in `results.txt` file (in the same directory where the script is);
 2. Asking a user to choose a game level. There are next lvl on the current moment:
