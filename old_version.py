@@ -1,8 +1,3 @@
-import random
-import os
-import time
-
-
 def calculations():
     inputs = [x for x in range(2, 10)]
     operations = ['*', '-', '+']
@@ -13,17 +8,12 @@ def calculations():
 
 
 def calculation_logic(first_operand, operation, second_operand):
+    operations_dict = {'+': operator.add, '-': operator.sub, '*': operator.mul}
     print(str(first_operand), operation, str(second_operand))
-    result = 0
-    if operation == '+':
-        result = first_operand + second_operand
-    elif operation == '-':
-        result = first_operand - second_operand
-    elif operation == '*':
-        result = first_operand * second_operand
-    else:
+    calc = operations_dict.get(operation)
+    if not calc:
         print('Wrong input')
-    return result
+    return 0 if not calc else calc(first_operand, second_operand)
 
 
 def adding_and_subtraction_100_1000():
@@ -61,18 +51,15 @@ def choose_option(option):
     if option == 1:
         first_operand, operation, second_operand = calculations()
         result = calculation_logic(first_operand, operation, second_operand)
-        return result
     elif option == 2:
         result = integral_calculation()
-        return result
     elif option == 3:
         first_operand, operation, second_operand = adding_and_subtraction_100_1000()
         result = calculation_logic(first_operand, operation, second_operand)
-        return result
-    elif option == 4:
+    else:
         first_operand, operation, second_operand = multiplication_10_100_by_2_10()
         result = calculation_logic(first_operand, operation, second_operand)
-        return result
+    return result
 
 
 def ask_user_answer():
@@ -128,8 +115,8 @@ def check_previous_user_results():
                 print(str(i) + '.', line, end='')
                 i += 1
     except FileNotFoundError:
-        print('You dont have any previous results:(')
-    return ''
+        print('You don\'t have any previous results:(')
+
 
 
 def printing_chosen_lvl(user_option):
@@ -147,8 +134,7 @@ def printing_chosen_lvl(user_option):
 def time_difference_check(time_difference, time_required):
     if time_difference <= time_required:
         return True
-    else:
-        return False
+    return False
 
 
 def check_time(user_option, final_time):
@@ -174,9 +160,9 @@ def current_game_start_parameters():
     return questions, game_score, total_time
 
 
-def game_session():
+def main():
     questions, game_score, total_time = current_game_start_parameters()
-    print(check_previous_user_results())
+    check_previous_user_results()
     user_option = select_option()
     lvl = printing_chosen_lvl(user_option)
     while questions:
@@ -198,4 +184,5 @@ def game_session():
     return saving_results_to_file(game_score, lvl)
 
 
-print(game_session())
+if __name__ == "__main__":
+    print(main())
